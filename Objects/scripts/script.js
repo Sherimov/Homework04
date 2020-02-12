@@ -1,89 +1,3 @@
-// document.querySelector('body')
-//     .innerHTML = `<p>Hello</p>`;
-
-// console.log(typeof(console));
-// console.log(typeof(console.log));
-
-// let student = {
-//     name: 'Vasil',
-//     academy: "SEDC",
-//     sayHello: function () {
-//         console.log(`Hello from ${this.name}, i study at ${this.academy}`)
-//     }
-// }
-
-// student.sayHello();
-
-// let studentOne = {
-//     name: 'Ana',
-//     academy: "SEDC",
-//     sayHello: function () {
-//         console.log(`Hello from ${this.name}, i study at ${this.academy}`)
-//     }
-// }
-
-// function Student(name) {
-//     this.name = name;
-//     this.sayHello = () => {
-//         console.log(`Hello from ${this.name}, i study at ${this.academy}`)
-//     }
-//     this.setAcademy = (academy) => {
-//         this.academy = academy;
-//     }
-// }
-
-// let darko = new Student('darko',);
-// darko.sayHello();
-// darko.setAcademy("SEAVUS");
-// darko.sayHello();
-
-// let stefan = new Student("stefan");
-// let sayHello = stefan.sayHello;
-// sayHello();
-
-// let testObject = {
-//     thisValue: this,
-//     printThisValue : () => console.log("This from function " + this)
-// }
-
-// testObject.printThisValue();
-
-// let student = {
-//     id: 0,
-//     name: "Petar",
-//     address: {
-//         city: "Skopje",
-//         street: "KJP",
-//         number: 15
-//     },
-//     scores: {
-//         advancedJS: 9,
-//         html: 8,
-//         introductionToPrograming: 10,
-//     }
-// }
-//     without desctructuring
-// function showInfo(student) {
-//     let info = `Student ${student.name} has these scores: `;
-//     info += `advancedJS: ${student.scores.advancedJS}, html: ${student.scores.html} and  introductionToPrograming: ${student.scores.introductionToPrograming}`;
-//     console.log(info)
-// }
-
-//      with desctructuring
-
-// function showInfo({name, scores:{advancedJS, html, introductionToPrograming}}) {
-//     let info = `Student ${name} has these scores: `;
-//     info += `advancedJS: ${advancedJS}, html: ${html} and  introductionToPrograming: ${introductionToPrograming}`;
-//     console.log(info)
-// }
-
-// showInfo(student);
-
-
-// let {name, scores:{advancedJS, html, introductionToPrograming}} = student;
-// console.log(name);
-// console.log(html);
-
 function Academy (academyName, subjects, start, end) {
     this.academyName = academyName;
     this.students = [];
@@ -103,10 +17,10 @@ function Subject(title, isElective, academy) {
     this.students = students;
     this.overrideClasses = (number) => {
         if(number < 3) {
-            return "Number must be bigger than 3"
+            return "Number must be bigger than 3";
         }
         else {
-            numberOfClasses = number;   
+            this.numberOfClasses = number;   
         }
     }
 }
@@ -114,7 +28,7 @@ function Subject(title, isElective, academy) {
 function Student (firstName, lastName, age) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.age = age === "number";
+    this.age = typeof (age) === "number";
     this.completedSubjects = [];
     this.academy = null;
     this.currentSubject = null;
@@ -166,5 +80,10 @@ const {firstName, lastName} = name;
 
 
 newStudent.startAcademy(sedc, name);
-newStudent.startSubjects(subjectHtml)
-newStudent.startSubjects(subjectSql)
+newStudent.startSubjects(subjectHtml);
+newStudent.startSubjects(subjectSql);
+subjectCss.overrideClasses(15);
+
+console.log(subjectCss);
+console.log(sedc);
+console.log(newStudent);
